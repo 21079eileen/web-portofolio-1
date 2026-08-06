@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eileen's Bakery &amp; Coffee House</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#fff8f6",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdbd0",
+                        "on-secondary-fixed": "#1c1c17",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#390c00",
+                        "tertiary": "#72554e",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#66645e",
+                        "primary": "#9a4121",
+                        "surface-container": "#fceae5",
+                        "tertiary-container": "#8c6d66",
+                        "surface-variant": "#f0dfda",
+                        "on-surface-variant": "#56423c",
+                        "primary-container": "#b95836",
+                        "on-tertiary-fixed": "#2b1611",
+                        "on-tertiary-fixed-variant": "#5b403a",
+                        "secondary-fixed": "#e6e2d9",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#484741",
+                        "secondary": "#605e58",
+                        "inverse-primary": "#ffb59d",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffdad2",
+                        "surface-container-highest": "#f0dfda",
+                        "primary-fixed-dim": "#ffb59d",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#9d4323",
+                        "outline-variant": "#dcc1b8",
+                        "inverse-surface": "#382e2b",
+                        "surface-dim": "#e8d6d2",
+                        "surface-bright": "#fff8f6",
+                        "on-background": "#221a17",
+                        "surface-container-low": "#fff1ed",
+                        "outline": "#89726b",
+                        "secondary-fixed-dim": "#c9c6be",
+                        "inverse-on-surface": "#ffede8",
+                        "tertiary-fixed-dim": "#e4beb5",
+                        "on-surface": "#221a17",
+                        "surface": "#fff8f6",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#fffbff",
+                        "on-primary-fixed-variant": "#7d2c0d",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#e6e2d9",
+                        "surface-container-high": "#f6e4e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "grid-gutter": "24px",
+                        "base": "8px",
+                        "container-max-width": "1200px",
+                        "section-padding-desktop": "80px",
+                        "section-padding-mobile": "40px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Bricolage Grotesque"],
+                        "display-lg": ["Bricolage Grotesque"],
+                        "display-lg-mobile": ["Bricolage Grotesque"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Bricolage Grotesque"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-background docked full-width top-0 sticky z-50 transition-shadow duration-300" id="main-header">
+<div class="flex justify-between items-center w-full px-grid-gutter py-base max-w-container-max-width mx-auto bg-background dark:bg-background">
+<button aria-label="Open Menu" class="md:hidden text-primary dark:text-inverse-primary p-2 -ml-2 rounded-full hover:bg-surface-variant transition-colors" onclick="document.getElementById('mobile-drawer').classList.remove('-translate-x-full'); document.getElementById('drawer-overlay').classList.remove('hidden');">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<a class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary dark:text-inverse-primary uppercase tracking-tighter mx-auto md:mx-0" href="#">
+                Eileen's Bakery
+            </a>
+<nav class="hidden md:flex gap-6 items-center absolute left-1/2 -translate-x-1/2">
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors duration-300" href="#our-story">Our Story</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-label-md hover:text-primary transition-colors duration-300" href="#menu">The Menu</a>
+<a class="text-on-surface-variant font-label-md hover:text-primary transition-colors duration-300" href="#location">Location</a>
+</nav>
+<button aria-label="Shopping Bag" class="text-primary dark:text-inverse-primary p-2 -mr-2 rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</header>
+<!-- NavigationDrawer (Mobile) -->
+<div class="fixed inset-0 bg-on-background/20 z-[60] hidden transition-opacity" id="drawer-overlay" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full'); this.classList.add('hidden');"></div>
+<aside class="fixed top-0 left-0 bottom-0 bg-surface-container-low dark:bg-inverse-surface rounded-r-xl shadow-xl w-72 flex flex-col p-base z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden" id="mobile-drawer">
+<div class="flex justify-between items-center mb-8 px-4 mt-4">
+<h2 class="font-headline-sm text-headline-sm text-primary">Eileen's</h2>
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-variant" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full'); document.getElementById('drawer-overlay').classList.add('hidden');">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-2 px-2">
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-primary-fixed-dim rounded-full transition-colors scale-95 duration-200" href="#our-story" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full'); document.getElementById('drawer-overlay').classList.add('hidden');">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span> Our Story
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 bg-primary-container text-on-primary-container rounded-full font-label-md text-label-md hover:bg-primary-fixed-dim transition-colors scale-95 duration-200" href="#menu" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full'); document.getElementById('drawer-overlay').classList.add('hidden');">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span> The Menu
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-primary-fixed-dim rounded-full transition-colors scale-95 duration-200" href="#location" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full'); document.getElementById('drawer-overlay').classList.add('hidden');">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span> Location
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-primary-fixed-dim rounded-full transition-colors scale-95 duration-200" href="#contact" onclick="document.getElementById('mobile-drawer').classList.add('-translate-x-full'); document.getElementById('drawer-overlay').classList.add('hidden');">
+<span class="material-symbols-outlined" data-icon="mail">mail</span> Contact
+            </a>
+</nav>
+</aside>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative w-full h-[70vh] md:h-[85vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Hero Background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-kzq5swTXU3-jbdtwS2fqapY5Y-tv7OkA5Mz9t5PVODm9hNVSYO1E08MZ4Rue8LqQh124dMjl3qAQrSUpepCq26VaItgM1cyQtYyfiTer5ZJX6tlgKH5a7WklGCOlgozGEqmvUE9EhjZI8xHi2ivajpxRjjZwyLElszBvZaI0KpJby6950KAzzPBcuDcsOzR-mxFnGv6WzRwlX_K-cqWg5lqC-9nw6eHnKh5RMGY6boKGRbPVF7aIXZ3lmYjpIeMCaxg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-on-background/30 to-transparent"></div>
+</div>
+<div class="relative z-10 text-center px-grid-gutter max-w-container-max-width mx-auto flex flex-col items-center">
+<span class="px-4 py-1.5 rounded-full bg-surface-container-low text-primary font-label-md text-label-md mb-6 uppercase tracking-widest shadow-sm">Welcome</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-surface-container-lowest mb-6 drop-shadow-md">Eileen's Bakery &amp; Coffee</h1>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-2xl mb-8 drop-shadow-sm">Artisanal Daily, Baked with Heart</p>
+<a class="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-8 py-4 rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-1" href="#menu">
+                    Explore Our Menu
+                </a>
+</div>
+</section>
+<!-- CSS-Only Product Slider -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-surface-container-low" id="slider">
+<div class="max-w-container-max-width mx-auto px-grid-gutter mb-8 flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Fresh Out the Oven</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Swipe to see what we're baking today.</p>
+</div>
+<div class="hidden md:flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors" onclick="document.getElementById('product-slider').scrollBy({left: -300, behavior: 'smooth'})">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors" onclick="document.getElementById('product-slider').scrollBy({left: 300, behavior: 'smooth'})">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 px-grid-gutter md:px-0 md:max-w-container-max-width mx-auto gap-6" id="product-slider">
+<!-- Slide 1 -->
+<div class="snap-start flex-none w-72 md:w-80 group cursor-pointer">
+<div class="relative h-96 rounded-xl overflow-hidden mb-4 bg-surface shadow-sm group-hover:shadow-md transition-shadow">
+<img alt="Croissant" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaVxHrygU-vaaN_51RiTftiUZCK-L7usMYt5xsha4K4XvSNy8nymtUDEcVok5pKg5JgDVXNC5sMLKakFWwcykXHUJkYbK9r6KVRPuvHHNmi53njNqKpng-dpLMBFOL3AGFBssug3bB8uGPemnoVO_mAJ6B1vgveQ5N5oCw0I9_5u-YirFfGqOW8PnIJwvDnbJcDfv2hZAxGOJ88UnmOf3B52ltOuo34hvo73bcBYdoQh99JcoWjqWzmxyrIuhW1mD7gC8"/>
+<div class="absolute top-4 right-4 bg-surface-container-low text-primary font-label-md text-label-md px-3 py-1 rounded-full shadow-sm">
+                            $4.50
+                        </div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-center mb-1 group-hover:text-primary transition-colors">Classic Croissant</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-center">Flaky, buttery, perfect.</p>
+</div>
+<!-- Slide 2 -->
+<div class="snap-start flex-none w-72 md:w-80 group cursor-pointer">
+<div class="relative h-96 rounded-xl overflow-hidden mb-4 bg-surface shadow-sm group-hover:shadow-md transition-shadow">
+<img alt="Artisanal Bread" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVBUGQrF1z8PdoHc68W2G7TcLEunQPEJZcY3D0vovLEEO5ySLHWUBYPTk4K-rA4HsSg0HSK8LltExW9vEvk_sEcpRYzN-nymys8qgTT4VrTh2147k1Y9xiKWfHo8quJiNj1E1DZU3_kF2reBbH46EQyY1AnvxDc-Q1QCItpmfVGLJCsSfXQOWu8FjG5obuOiVnZEOz9hco4Thodiqmcbc1yjEe_bB3tHjxuRAxx7u3sodSUHUkhbsBFhiMl0Wr56R8n2k"/>
+<div class="absolute top-4 right-4 bg-surface-container-low text-primary font-label-md text-label-md px-3 py-1 rounded-full shadow-sm">
+                            $8.00
+                        </div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-center mb-1 group-hover:text-primary transition-colors">Sourdough Loaf</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-center">Naturally leavened daily.</p>
+</div>
+<!-- Slide 3 -->
+<div class="snap-start flex-none w-72 md:w-80 group cursor-pointer">
+<div class="relative h-96 rounded-xl overflow-hidden mb-4 bg-surface shadow-sm group-hover:shadow-md transition-shadow">
+<img alt="Specialty Coffee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPGz7sPU-5-zzT4shxXYKAZQmS66KdQsQ2oiwRyeR7mgoJNqKs4wbC6YL5VgWGEJmpxtN6arnNDlGV1bYotiACEm6MWcNjXure_QorlOLl1nhlk8G-8qTRludUoCDxfyXtc0pxmvrz5ToFOxdOcgvk-BbTXNj5kRFgySXFRlOROpNo9dXitZmvIDFqLV_2JGPZF6CxJVd2CfBfzi1k20pCv8qnM3IeEmkYZyTDqh-X29p_b3BHIu3JJEKlvYij4rwUf2E"/>
+<div class="absolute top-4 right-4 bg-surface-container-low text-primary font-label-md text-label-md px-3 py-1 rounded-full shadow-sm">
+                            $5.50
+                        </div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-center mb-1 group-hover:text-primary transition-colors">Pour Over</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-center">Single origin roast.</p>
+</div>
+<!-- Slide 4 -->
+<div class="snap-start flex-none w-72 md:w-80 group cursor-pointer pr-grid-gutter md:pr-0">
+<div class="relative h-96 rounded-xl overflow-hidden mb-4 bg-surface shadow-sm group-hover:shadow-md transition-shadow">
+<img alt="Pastry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoqp7ogRqQZn8FXM7tsyCaa4ChKJpRUogw6eF-KJJWaeZiqCzT8yIY0JThKVJaFIlWAdP_KKxG9-bIChZ526cKV4zD0WfwRXhI-2NgsHNH-0eS5JW3Lxn8y1ZwrN31XcnaGDGSEM3JZtn6z85mGLHN0xs_BUPl1yfghwNqB6p971ucMdkmdk07UteH3kx0lZkjSMYqVd3zD-W2lfrc04CdGkyl-32JTwF9Bj_r3F8Ky8tujbA_Q9SmxFYrYX5MjTjZExs"/>
+<div class="absolute top-4 right-4 bg-surface-container-low text-primary font-label-md text-label-md px-3 py-1 rounded-full shadow-sm">
+                            $6.00
+                        </div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-center mb-1 group-hover:text-primary transition-colors">Fruit Tart</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-center">Seasonal fresh fruits.</p>
+</div>
+</div>
+</section>
+<!-- Our Story -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop px-grid-gutter max-w-container-max-width mx-auto" id="our-story">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+<div class="md:col-span-5 order-2 md:order-1">
+<span class="text-primary font-label-md text-label-md uppercase tracking-widest mb-4 block">Our Story</span>
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-6">Meet Eileen</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                        I'm Eileen, a high school student with a dual passion: crafting the perfect flaky pastry and writing clean HTML/CSS. This bakery is a conceptual project where I blend my love for artisanal baking with my journey into web development.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        Every design choice here reflects the warmth and care I'd want in my own real-world shop—inviting cream tones, earthy terracotta accents, and a focus on quality.
+                    </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-md text-label-md hover:text-primary-container transition-colors group" href="#">
+                        Read full story <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="md:col-span-7 order-1 md:order-2">
+<div class="relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-auto md:h-[600px] shadow-lg">
+<img class="w-full h-full object-cover" data-alt="A warm, lifestyle portrait of a young female high school student baker in a flour-dusted apron, standing in a sunny, modern bakery kitchen. She is smiling gently while holding a wooden whisk. The lighting is soft, natural daylight streaming through large windows, creating a bright, inviting, and professional editorial aesthetic. Warm cream and light terracotta tones dominate the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBjn_dsK8h3i-fICBvcUnRp2JOxe_Lrhy26dYaqVTQm-09lbbyhmbpIJ_jvxyQC7Oadu8y0puNTLJT3eYSeZKhHhzE7tsMI44Uuo56ikeMOS-GFcXLz8f3y8_cmlH8x8cgeUTMNgkaPk2dQuhQLeeJg41jk05Y-evDWZEWRLs-Ov0RjmuqsDyFzBhfw_cLI-k1UWwDY6yJUKjgwkw_3DMkJ1BxXv-YtuS_raU5EAlcB7fkuajdMf4XsA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Highlights (Bento Grid) -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop bg-surface-container-high px-grid-gutter" id="menu">
+<div class="max-w-container-max-width mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-4">Menu Highlights</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Our most loved creations, baked fresh daily.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:auto-rows-[300px]">
+<!-- Item 1: Large spanning -->
+<div class="md:col-span-2 md:row-span-2 relative rounded-2xl overflow-hidden group cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A top-down, high-resolution editorial photograph of a beautifully crafted artisanal fruit tart on a matte ceramic plate. The tart features a flaky, golden-brown crust filled with smooth cream and meticulously arranged fresh seasonal berries (strawberries, blueberries, raspberries) glazed to a high shine. The background is a clean, textured cream surface. The lighting is soft and natural, emphasizing the vibrant colors and textures of the pastry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaw1zj3aH9_cgu_9JuTS6nhEXrLFaZgyxvq1Ex2zMUjBtu04K4RNX9SRFRXaFVU6N95uibj1AjLTh0-3dux10L8hWYqWIoNVjOIQG67kX0mQt08vdnLn7Ez3ANUD4tntSelaiynHEVIY4rRjCfHUnxIhqF-f0LHqf7FEt50GiKOA3gmtxi8dx8xDq9M8xYIcoFdKzrjH41zHeAeUIHcTRVbEL-i-fHRiDY4mQSibZn6k-JJXiT8rYN7Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="flex justify-between items-end">
+<div>
+<span class="inline-block px-3 py-1 bg-surface-container-low text-primary font-label-md text-label-md rounded-full mb-3 shadow-sm">Signature</span>
+<h3 class="font-display-lg-mobile text-display-lg-mobile text-surface-container-lowest mb-2">Seasonal Fruit Tart</h3>
+<p class="font-body-md text-body-md text-surface-variant">A delicate shell filled with vanilla bean pastry cream and topped with market-fresh fruits.</p>
+</div>
+<span class="font-headline-md text-headline-md text-surface-container-lowest">$6.50</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative rounded-2xl overflow-hidden group cursor-pointer bg-surface">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A close-up, high-quality photograph of a steaming cup of specialty pour-over coffee in an earthy terracotta mug. The coffee has a rich, dark crema. It sits on a minimal wooden saucer on a light cream table. Soft, warm morning light creates a cozy, inviting atmosphere with gentle shadows, highlighting the steam rising from the cup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT78vfv5soY18ql4e1G_FhpABLrnelvR6A1q0iSfivRP3lDW9WQTnk1XND6HcaMqTs6sEV5EENeV5j6p-dBujTsb2ZzBXlqg2lhZwk2tRgeLcXQ7DE1gaLByK--duAVB7vCbeNj66BPRyem8_N4OYEZ3WzmZFUtXpdHV7uoIVIEh70zGBdg4FHbU-dAicGNq5m3VHNGbw1y999TwDLtYt4eez2jj4TGjT1chgepHsfjOiI5uMsVSXakQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/70 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<h3 class="font-headline-sm text-headline-sm text-surface-container-lowest mb-1">House Pour Over</h3>
+<p class="font-label-md text-label-md text-surface-variant mb-2">Single Origin Ethiopia</p>
+<span class="font-headline-sm text-headline-sm text-inverse-primary">$5.00</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="relative rounded-2xl overflow-hidden group cursor-pointer bg-surface">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A professional food photograph showing a stack of three perfectly baked, golden-brown chocolate chip cookies with slightly crispy edges and gooey chocolate centers. They rest on a piece of rustic parchment paper over a cream-colored marble surface. The lighting is warm and directional, emphasizing the texture and appetizing nature of the cookies in a modern bakery setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc2k8zyOa7ydJJVuuOfl9gQpVEjtzFB9KHo9yzOIe1RwbEN-lYZK1YVCiQB6lCa9fKVVCxXfvnIpFSRsfkEzwGXV2DOY9JC8GQxXqVNPhPK_cqCqyxTpeNjnOADXJRArRopfQwE3JRvgvKK-RNaNosqW23bvc6jOf3V9mLuCxYlhLrL_mgJGm98uGHTv-r-O__Ks3o5UhIVQPVce9KrMd7c9UCM_BMfRcCLE5mX1Frk1da8s-zKkCF1Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/70 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<h3 class="font-headline-sm text-headline-sm text-surface-container-lowest mb-1">Brown Butter Cookie</h3>
+<p class="font-label-md text-label-md text-surface-variant mb-2">Dark Chocolate Chunk</p>
+<span class="font-headline-sm text-headline-sm text-inverse-primary">$3.50</span>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<button class="px-8 py-3 rounded-full border-2 border-primary text-primary font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors">
+                        View Full Menu
+                    </button>
+</div>
+</div>
+</section>
+<!-- Location & Hours -->
+<section class="py-section-padding-mobile md:py-section-padding-desktop px-grid-gutter max-w-container-max-width mx-auto" id="location">
+<div class="bg-surface rounded-3xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="p-8 md:p-12 flex flex-col justify-center">
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-8">Visit Us</h2>
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Location</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">123 Baker Street<br/>HTML City, Webland 404</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Hours</h3>
+<ul class="font-body-md text-body-md text-on-surface-variant space-y-1">
+<li class="flex justify-between w-48"><span>Mon - Fri</span> <span>7am - 4pm</span></li>
+<li class="flex justify-between w-48"><span>Saturday</span> <span>8am - 5pm</span></li>
+<li class="flex justify-between w-48 text-tertiary"><span>Sunday</span> <span>Closed</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="h-64 md:h-auto relative bg-surface-container-low">
+<img class="w-full h-full object-cover" data-alt="A stylized, minimalist map illustration showing a location pin for 'Eileen's Bakery' in a simplified city grid. The map uses a cohesive color palette of warm creams, light terracotta roads, and deeper brown accents for parks or buildings, matching the overall brand aesthetic. It is clean, modern, and easy to read." data-location="Seattle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3uF86onJl9JCUsLHxAvyNgAgKmcpKcoUet_T63oarMzK18lZLiDrfqC-rYV-iO-5mIgtGKuTBhAnAl5u2D56RHV0zxL2iDAmlfL7GIgr1mQjkO3YJ4OpqThT82s4lknZUtdU2bbkIgFo-NgADSz8vRtWzEin64I82ph0Au9xmeYJMcL6MXlsR8L_WvHBig4W_vMBp7YKpPixeaQzJ-UvpKGwKy5OtrQsWx7bv_0AgEveNkpfCl7pQIg"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full py-section-padding-mobile md:py-section-padding-desktop px-grid-gutter flex flex-col md:flex-row justify-between items-center gap-base max-w-container-max-width mx-auto border-t-0 mt-auto">
+<div class="flex flex-col items-center md:items-start mb-6 md:mb-0">
+<span class="font-headline-sm text-headline-sm text-primary mb-2">Eileen's Bakery</span>
+<p class="font-body-md text-body-md text-tertiary dark:text-tertiary-fixed-dim text-center md:text-left">
+                © 2024 Eileen's Bakery &amp; Coffee House. Artisanal Daily.
+            </p>
+<p class="font-body-md text-body-md text-tertiary dark:text-tertiary-fixed-dim mt-1 text-sm italic">
+                Created by Eileen as an HTML &amp; CSS learning project.
+            </p>
+</div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant opacity-80 hover:opacity-100 hover:text-primary underline decoration-primary transition-all" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant opacity-80 hover:opacity-100 hover:text-primary underline decoration-primary transition-all" href="#">Facebook</a>
+<a class="font-body-md text-body-md text-on-surface-variant opacity-80 hover:opacity-100 hover:text-primary underline decoration-primary transition-all" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant opacity-80 hover:opacity-100 hover:text-primary underline decoration-primary transition-all" href="#">Careers</a>
+</nav>
+</footer>
+<script>
+        // Simple header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>
